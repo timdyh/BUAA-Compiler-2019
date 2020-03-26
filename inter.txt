@@ -1,0 +1,8 @@
+
+main:
+prints $str0
+printc 10
+readi test
+printi test
+printc 10
+ret 

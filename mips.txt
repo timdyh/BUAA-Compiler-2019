@@ -1,0 +1,30 @@
+.data
+test: .space 4
+$str0: .asciiz "Hello World"
+
+.text
+lui $gp, 0x1001
+jal main
+li $v0, 10
+syscall
+
+main:
+sw $ra, 0($sp)
+addiu $fp, $sp, -4
+li $v0, 4
+la $a0, $str0
+syscall
+li $v0, 11
+li $a0, 10
+syscall
+li $v0, 5
+syscall
+sw $v0, 0($gp)
+li $v0, 1
+lw $a0, 0($gp)
+syscall
+li $v0, 11
+li $a0, 10
+syscall
+lw $ra, 0($sp)
+jr $ra
